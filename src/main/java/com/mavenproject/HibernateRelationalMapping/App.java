@@ -1,10 +1,8 @@
 package com.mavenproject.HibernateRelationalMapping;
 
-import javax.imageio.spi.ServiceRegistry;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -25,6 +23,8 @@ public class App
     	student.setName("Snigdha");
     	student.setMarks(50);
     	student.getLaptop().add(laptop);
+    	
+    	laptop.getStudent().add(student);
     	
     	Configuration config = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
     	SessionFactory sf = config.buildSessionFactory();
